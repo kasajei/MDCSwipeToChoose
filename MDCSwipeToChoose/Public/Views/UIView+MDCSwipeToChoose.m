@@ -48,7 +48,8 @@ const void * const MDCViewStateKey = &MDCViewStateKey;
 
 - (void)mdc_swipe:(MDCSwipeDirection)direction {
     [self mdc_swipeToChooseSetupIfNecessary];
-
+    self.mdc_viewState.originalCenter = self.center;
+    
     // A swipe in no particular direction "finalizes" the swipe.
     if (direction == MDCSwipeDirectionNone) {
         [self mdc_finalizePosition];
